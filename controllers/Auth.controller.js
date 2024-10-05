@@ -1,6 +1,9 @@
 import vine, { errors } from "@vinejs/vine";
 import prisma from "../Db/db.config.js";
-import { loginSchema, registerSchema } from "../validations/Auth.validation.js";
+import {
+  loginSchema,
+  registerSchema,
+} from "../validations/index.validation.js";
 import {
   PasswordGenerate,
   ComparePassword,

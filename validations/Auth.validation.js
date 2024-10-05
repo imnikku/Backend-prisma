@@ -1,5 +1,5 @@
 import vine from "@vinejs/vine";
-import { CustomeErrorReporter } from "./Custome.Error.Reporter.js";
+import { CustomeErrorReporter } from "./index.validation.js";
 
 vine.errorReporter = () => new CustomeErrorReporter();
 export const registerSchema = vine.object({
