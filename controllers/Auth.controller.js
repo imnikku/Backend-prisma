@@ -2,10 +2,10 @@ import vine, { errors } from "@vinejs/vine";
 import prisma from "../Db/db.config.js";
 import { loginSchema, registerSchema } from "../validations/Auth.validation.js";
 import {
-  ComparePassword,
   PasswordGenerate,
-} from "../helpers/PasswordGenerate.js";
-import { SignToken } from "../helpers/TokenGenerate.js";
+  ComparePassword,
+  SignToken,
+} from "../helpers/index.helper.js";
 class AuthController {
   // register ..........
   static async register(req, res) {

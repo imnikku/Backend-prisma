@@ -5,8 +5,7 @@ export const SignToken = async (user) => {
     email: user.email,
     createdAt: user.createdAt,
   };
-  let token = jwt.sign(payload, process.env.JWT_SECRET, {
+  return jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: process.env.EXPIRES_IN,
   });
-  return `Bearer ${token}`;
 };
