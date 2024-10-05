@@ -48,7 +48,7 @@ class AuthController {
     try {
       const data = req.body;
       const validator = vine.compile(loginSchema);
-      const payload = await validator.validate(data);
+      await validator.validate(data);
       const isUser = await prisma.users.findUnique({
         where: {
           email: data.email,
@@ -71,7 +71,6 @@ class AuthController {
       if (error instanceof errors.E_VALIDATION_ERROR) {
         return res.status(400).json({ message: error.messages, data: null });
       }
-      console.log(error);
       return res.status(500).json({
         message: "Something wend wrong",
         data: null,

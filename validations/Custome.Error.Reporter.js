@@ -18,7 +18,6 @@ export class CustomeErrorReporter {
    */
   report(message, rule, field, meta) {
     this.hasErrors = true;
-    console.log(field);
 
     /**
      * Collecting errors as per the JSONAPI spec
