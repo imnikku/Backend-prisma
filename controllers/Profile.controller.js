@@ -7,7 +7,6 @@ import {
 } from "../helpers/index.helper.js";
 
 class ProfileController {
-  async name(params) {}
   // get profile ....
   static async getProfile(req, res) {
     try {
