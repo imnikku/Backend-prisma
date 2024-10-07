@@ -27,8 +27,6 @@ class ProfileController {
   //   update profile .........
   static async updateProfile(req, res) {
     try {
-      let user = req.user;
-
       if (
         !req.files ||
         Object.keys(req.files).length == 0 ||
@@ -40,6 +38,15 @@ class ProfileController {
         });
       }
       const profileImage = req.files.profile;
+
+      if (profileImage instanceof Array) {
+        return res.status(500).json({
+          message: "Please provide only one image",
+          data: null,
+        });
+      }
+
+      console.log(profileImage instanceof Array);
       const invalidImage = imageValidator(
         profileImage.size,
         profileImage.mimetype
@@ -53,11 +60,11 @@ class ProfileController {
 
       //   upload image .............
       const imageName = generateUniqueImgeName(profileImage.name);
-      const uploadPath = UploadPath(`${imageName}`);
+      const uploadPath = UploadPath(imageName);
       await FileUpload(profileImage, uploadPath);
-      user = await prisma.users.update({
+      let user = await prisma.users.update({
         data: { profile: imageName },
-        where: { id: Number(user.id) },
+        where: { id: Number(req.user.id) },
       });
       return res.status(200).json({
         message: "uploaded successfully",
