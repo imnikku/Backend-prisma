@@ -1,4 +1,5 @@
-async function FileUpload(file, path) {
+import fs from "fs";
+export async function FileUpload(file, path) {
   try {
     return await file.mv(path);
   } catch (error) {
@@ -6,4 +7,9 @@ async function FileUpload(file, path) {
   }
 }
 
-export default FileUpload;
+export async function RemoveFile(imageName) {
+  const path = `${process.cwd()}/public/images/${imageName}`;
+  if (fs.existsSync(path)) {
+    fs.unlinkSync(path);
+  }
+}

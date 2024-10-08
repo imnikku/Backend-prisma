@@ -1,4 +1,3 @@
-import ProfileController from "./Profile.controller.js";
-import AuthController from "./Auth.controller.js";
-import NewsController from "./News.controller.js";
-export { AuthController, ProfileController, NewsController };
+export { default as ProfileController } from "./Profile.controller.js";
+export { default as AuthController } from "./Auth.controller.js";
+export { default as NewsController } from "./News.controller.js";

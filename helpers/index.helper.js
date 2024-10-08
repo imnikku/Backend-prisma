@@ -1,16 +1,6 @@
-import { PasswordGenerate, ComparePassword } from "./PasswordGenerate.js";
-import GenerateUniqueNumber from "./GenerateUniqueNumber.js";
-import { generateUniqueImgeName, imageValidator } from "./Image.helper.js";
-import { SignToken } from "./TokenGenerate.js";
-import { UploadPath } from "./UploadPath.js";
-import FileUpload from "./FileUpload.js";
-export {
-  PasswordGenerate,
-  ComparePassword,
-  SignToken,
-  GenerateUniqueNumber,
-  generateUniqueImgeName,
-  imageValidator,
-  UploadPath,
-  FileUpload,
-};
+export { PasswordGenerate, ComparePassword } from "./PasswordGenerate.js";
+export { default as GenerateUniqueNumber } from "./GenerateUniqueNumber.js";
+export { generateUniqueImgeName, imageValidator } from "./Image.helper.js";
+export { SignToken } from "./TokenGenerate.js";
+export { UploadPath } from "./UploadPath.js";
+export { FileUpload, RemoveFile } from "./FileUpload.js";
